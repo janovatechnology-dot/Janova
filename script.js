@@ -47,8 +47,6 @@ function openStudentForm() {
 
 /* ================= ENQUIRY SUBMIT ================= */
 
-/* ================= ENQUIRY SUBMIT ================= */
-
 async function submitEnquiry(event) {
     // இது பிரவுசரின் இயல்பான ரீஃப்ரெஷ்/ஸ்க்ரோலிங்கைத் தடுக்கும்
     event.preventDefault();
@@ -92,15 +90,12 @@ async function submitEnquiry(event) {
         const myWhatsAppNumber = "919360248958"; 
         const whatsappText = `New Enquiry from Janova Website!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
         
-    
         const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappText}`;
 
         alert("Thank you " + name + "! Your enquiry has been received.");
         
-      
         document.getElementById("enquiryForm").reset();
         
-      
         window.location.href = whatsappURL;
 
     } catch (e) {
@@ -112,12 +107,6 @@ async function submitEnquiry(event) {
         
         window.location.href = whatsappURL;
     }
-
-    } catch (e) {
-        console.error("Error adding document: ", e);
-        alert("Error sending enquiry. Please try again.");
-    }
-
 }
 
 /* ================= MODAL CLICK OUTSIDE ================= */
