@@ -72,6 +72,11 @@ window.submitEnquiry = async function(event) {
         return;
     }
 
+    
+    const myWhatsAppNumber = "919360248958"; 
+    const whatsappText = `New Enquiry from Janova Website!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
+    const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappText}`;
+
     const enquiryData = {
         name: name,
         email: email,
@@ -81,20 +86,15 @@ window.submitEnquiry = async function(event) {
         createdAt: new Date().toISOString()
     };
 
-    // WhatsApp URL தயார் செய்தல்
-    const myWhatsAppNumber = "919360248958"; 
-    const whatsappText = `New Enquiry from Janova Website!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
-    const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappText}`;
-
     try {
-        // Save to Firestore
+        
         await addDoc(collection(db, "enquiries"), enquiryData);
         document.getElementById("enquiryForm").reset();
     } catch (e) {
         console.error("Error adding document: ", e);
     }
 
-    // பயனர் ஆண்ட்ராய்டில் இருக்கும்போது வாட்ஸ்அப் ஓபன் ஆக உறுதியான வழி
+    
     window.location.href = whatsappURL;
 }
 
