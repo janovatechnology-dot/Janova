@@ -77,8 +77,7 @@ async function submitEnquiry(event) {
         // WhatsApp Notification
         const myWhatsAppNumber = "919360248958"; 
         const whatsappText = `New Enquiry from Janova Website!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
-        const whatsappURL = `https://api.whatsapp.com/send?phone=${myWhatsAppNumber}&text=${whatsappText}`;
-
+        const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappText}`;
         alert("Thank you " + name + "! Your enquiry has been received.");
         
         document.getElementById("enquiryForm").reset();
