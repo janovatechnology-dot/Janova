@@ -82,7 +82,7 @@ async function submitEnquiry(event) {
         alert("Thank you " + name + "! Your enquiry has been received.");
         
         document.getElementById("enquiryForm").reset();
-        window.open(whatsappURL, '_blank');
+        window.location.href = whatsappURL;
 
     } catch (e) {
         console.error("Error adding document: ", e);
