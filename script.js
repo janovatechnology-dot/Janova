@@ -18,37 +18,36 @@ const db = getFirestore(app);
 
 /* ================= LOGIN ================= */
 
-function openLogin() {
+window.openLogin = function() {
     document.getElementById("loginModal").classList.add("active");
 }
 
-function closeLogin() {
+window.closeLogin = function() {
     document.getElementById("loginModal").classList.remove("active");
 }
 
-function demoLogin() {
+window.demoLogin = function() {
     alert("Client login UI is ready! For real login, connect this form to your backend/database.");
 }
 
 /* ================= ENQUIRY ================= */
 
-function openEnquiry() {
+window.openEnquiry = function() {
     document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
 }
 
 /* ================= STUDENT ================= */
 
-function openStudentForm() {
+window.openStudentForm = function() {
     document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
     setTimeout(() => {
-        document.getElementById("service").value = "Internship";
+        document.getElementById("service").value = "Business Analytics (Webinar)";
     }, 700);
 }
 
 /* ================= ENQUIRY SUBMIT ================= */
 
-async function submitEnquiry(event) {
-    // இது பிரவுசரின் இயல்பான ரீஃப்ரெஷ்/ஸ்க்ரோலிங்கைத் தடுக்கும்
+window.submitEnquiry = async function(event) {
     event.preventDefault();
 
     const nameInput = document.getElementById("name");
@@ -82,38 +81,28 @@ async function submitEnquiry(event) {
         createdAt: new Date().toISOString()
     };
 
+    // WhatsApp URL தயார் செய்தல்
+    const myWhatsAppNumber = "919360248958"; 
+    const whatsappText = `New Enquiry from Janova Website!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
+    const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappText}`;
+
     try {
         // Save to Firestore
         await addDoc(collection(db, "enquiries"), enquiryData);
-        
-        // WhatsApp Notification URL
-        const myWhatsAppNumber = "919360248958"; 
-        const whatsappText = `New Enquiry from Janova Website!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
-        
-        const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappText}`;
-
-        alert("Thank you " + name + "! Your enquiry has been received.");
-        
         document.getElementById("enquiryForm").reset();
-        
-        window.location.href = whatsappURL;
-
     } catch (e) {
         console.error("Error adding document: ", e);
-      
-        const myWhatsAppNumber = "919360248958"; 
-        const whatsappText = `New Enquiry from Janova Website!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
-        const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappText}`;
-        
-        window.location.href = whatsappURL;
     }
+
+    // பயனர் ஆண்ட்ராய்டில் இருக்கும்போது வாட்ஸ்அப் ஓபன் ஆக உறுதியான வழி
+    window.location.href = whatsappURL;
 }
 
 /* ================= MODAL CLICK OUTSIDE ================= */
 
 document.getElementById("loginModal").addEventListener("click", function(event) {
     if (event.target === this) {
-        closeLogin();
+        window.closeLogin();
     }
 });
 
@@ -121,8 +110,10 @@ document.getElementById("loginModal").addEventListener("click", function(event) 
 
 const world = document.querySelector(".moving-world");
 
-document.addEventListener("mousemove", function(event) {
-    const x = (event.clientX / window.innerWidth - .5) * 12;
-    const y = (event.clientY / window.innerHeight - .5) * 8;
-    world.style.transform = `scale(1.12) translate3d(${x}px, ${y}px, 0)`;
-});
+if (world) {
+    document.addEventListener("mousemove", function(event) {
+        const x = (event.clientX / window.innerWidth - .5) * 12;
+        const y = (event.clientY / window.innerHeight - .5) * 8;
+        world.style.transform = `scale(1.12) translate3d(${x}px, ${y}px, 0)`;
+    });
+}
