@@ -47,14 +47,28 @@ function openStudentForm() {
 
 /* ================= ENQUIRY SUBMIT ================= */
 
+/* ================= ENQUIRY SUBMIT ================= */
+
 async function submitEnquiry(event) {
+    // இது பிரவுசரின் இயல்பான ரீஃப்ரெஷ்/ஸ்க்ரோலிங்கைத் தடுக்கும்
     event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const service = document.getElementById("service").value;
-    const message = document.getElementById("message").value;
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+    const serviceInput = document.getElementById("service");
+    const messageInput = document.getElementById("message");
+
+    if (!nameInput || !emailInput || !phoneInput || !serviceInput || !messageInput) {
+        alert("Form elements not found!");
+        return;
+    }
+
+    const name = nameInput.value;
+    const email = emailInput.value;
+    const phone = phoneInput.value;
+    const service = serviceInput.value;
+    const message = messageInput.value;
 
     if (!name || !email || !phone || !service || !message) {
         alert("Please fill all details.");
@@ -70,20 +84,34 @@ async function submitEnquiry(event) {
         createdAt: new Date().toISOString()
     };
 
-        try {
+    try {
         // Save to Firestore
         await addDoc(collection(db, "enquiries"), enquiryData);
         
-        // WhatsApp Notification
+        // WhatsApp Notification URL
+        const myWhatsAppNumber = "919360248958"; 
+        const whatsappText = `New Enquiry from Janova Website!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
+        
+    
+        const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappText}`;
+
+        alert("Thank you " + name + "! Your enquiry has been received.");
+        
+      
+        document.getElementById("enquiryForm").reset();
+        
+      
+        window.location.href = whatsappURL;
+
+    } catch (e) {
+        console.error("Error adding document: ", e);
+      
         const myWhatsAppNumber = "919360248958"; 
         const whatsappText = `New Enquiry from Janova Website!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
         const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappText}`;
-        alert("Thank you " + name + "! Your enquiry has been received.");
         
-        document.getElementById("enquiryForm").reset();
-        
-        // WhatsApp-க்கு கொண்டு செல்ல இதைப் பயன்படுத்தவும்
-        window.location.assign(whatsappURL);
+        window.location.href = whatsappURL;
+    }
 
     } catch (e) {
         console.error("Error adding document: ", e);
