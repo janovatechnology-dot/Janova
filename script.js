@@ -70,7 +70,7 @@ async function submitEnquiry(event) {
         createdAt: new Date().toISOString()
     };
 
-    try {
+        try {
         // Save to Firestore
         await addDoc(collection(db, "enquiries"), enquiryData);
         
@@ -82,12 +82,15 @@ async function submitEnquiry(event) {
         alert("Thank you " + name + "! Your enquiry has been received.");
         
         document.getElementById("enquiryForm").reset();
-        window.location.href = whatsappURL;
+        
+        // WhatsApp-க்கு கொண்டு செல்ல இதைப் பயன்படுத்தவும்
+        window.location.assign(whatsappURL);
 
     } catch (e) {
         console.error("Error adding document: ", e);
         alert("Error sending enquiry. Please try again.");
     }
+
 }
 
 /* ================= MODAL CLICK OUTSIDE ================= */
