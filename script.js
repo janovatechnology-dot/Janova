@@ -1,12 +1,6 @@
-/* =====================================================
-   JANOVA TECHNOLOGIES
-   MAIN JAVASCRIPT
-===================================================== */
-
-
-/* =====================================================
+/* =========================================================
    FIREBASE
-===================================================== */
+========================================================= */
 
 import {
     initializeApp
@@ -41,660 +35,295 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+    initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+const db =
+    getFirestore(app);
 
 
-/* =====================================================
-   WHATSAPP
-===================================================== */
+/* =========================================================
+   LOGIN
+========================================================= */
 
-const WHATSAPP_NUMBER = "919360248958";
+window.openLogin = function () {
 
+    const modal =
+        document.getElementById("loginModal");
 
-function sendWhatsApp(message) {
-
-    const encoded =
-        encodeURIComponent(message);
-
-    const url =
-        `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
-
-    window.open(url, "_blank");
-}
-
-
-/* =====================================================
-   SERVICE DATA
-===================================================== */
-
-const services = {
-
-    billing: {
-
-        icon: "🧾",
-
-        category: "BUSINESS SOFTWARE",
-
-        title: "Billing Software",
-
-        description:
-            "Smart and simple billing software designed for shops, stores and growing businesses.",
-
-        detail:
-            "Janova Technologies can build customized billing systems that help businesses manage products, customers, invoices, sales and daily transactions from one digital platform.",
-
-        technologies: [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "Firebase",
-            "Supabase",
-            "MySQL"
-        ],
-
-        features: [
-            "Invoice Generation",
-            "Product Management",
-            "Customer Management",
-            "Sales Tracking",
-            "Stock Management",
-            "Daily Reports",
-            "Dashboard",
-            "Digital Records"
-        ]
-
-    },
-
-
-    attendance: {
-
-        icon: "📊",
-
-        category: "MANAGEMENT SOFTWARE",
-
-        title: "Attendance Software",
-
-        description:
-            "Digital attendance management systems for colleges, schools, companies and organizations.",
-
-        detail:
-            "Create an attendance platform that allows administrators, staff and students to manage attendance digitally with records, dashboards and reports.",
-
-        technologies: [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "Firebase",
-            "Supabase",
-            "Python"
-        ],
-
-        features: [
-            "Student Attendance",
-            "Staff Attendance",
-            "Daily Records",
-            "Monthly Reports",
-            "Admin Dashboard",
-            "User Login",
-            "Cloud Database",
-            "Attendance Analytics"
-        ]
-
-    },
-
-
-    website: {
-
-        icon: "🌐",
-
-        category: "WEB DEVELOPMENT",
-
-        title: "Website Development",
-
-        description:
-            "Modern responsive websites for businesses, stores, startups and organizations.",
-
-        detail:
-            "We create responsive websites with modern UI, animations, contact systems and business-focused features. Websites can be customized according to your brand and requirements.",
-
-        technologies: [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "React",
-            "Node.js",
-            "Firebase",
-            "Supabase"
-        ],
-
-        features: [
-            "Business Website",
-            "Company Website",
-            "Portfolio Website",
-            "Store Website",
-            "Landing Page",
-            "Contact Forms",
-            "WhatsApp Integration",
-            "Responsive Design"
-        ]
-
-    },
-
-
-    app: {
-
-        icon: "📱",
-
-        category: "APPLICATION DEVELOPMENT",
-
-        title: "App Development",
-
-        description:
-            "Custom mobile and web applications designed around your business requirements.",
-
-        detail:
-            "Turn your idea into a working application. We can design custom applications for businesses, educational institutions, stores and startups.",
-
-        technologies: [
-            "JavaScript",
-            "React",
-            "Node.js",
-            "Firebase",
-            "Supabase",
-            "Python"
-        ],
-
-        features: [
-            "Custom UI",
-            "User Login",
-            "Database Integration",
-            "Admin Panel",
-            "Notifications",
-            "Cloud Storage",
-            "API Integration",
-            "Responsive Applications"
-        ]
-
-    },
-
-
-    internship: {
-
-        icon: "🎓",
-
-        category: "STUDENT PROGRAM",
-
-        title: "Technology Internships",
-
-        description:
-            "Practical internships designed to help college students gain real-world technology experience.",
-
-        detail:
-            "Students can learn through practical projects, assignments and guided development. Internship areas can include web development, Python, data analytics, AI and software development.",
-
-        technologies: [
-            "Python",
-            "HTML & CSS",
-            "JavaScript",
-            "SQL",
-            "Data Analytics",
-            "Artificial Intelligence"
-        ],
-
-        features: [
-            "Practical Projects",
-            "Project Guidance",
-            "Technical Sessions",
-            "Assignments",
-            "Project Certificate",
-            "Resume Support",
-            "Industry Exposure",
-            "Mentorship"
-        ]
-
-    },
-
-
-    workshop: {
-
-        icon: "💻",
-
-        category: "TECHNICAL TRAINING",
-
-        title: "Technical Workshops",
-
-        description:
-            "Hands-on workshops designed around current technology and practical skills.",
-
-        detail:
-            "Our workshops focus on practical learning instead of only theory. Sessions can be customized for colleges and student communities.",
-
-        technologies: [
-            "Python",
-            "Artificial Intelligence",
-            "Data Analytics",
-            "Cyber Security",
-            "Web Development",
-            "Cloud Technologies"
-        ],
-
-        features: [
-            "Live Sessions",
-            "Hands-on Activities",
-            "Real Examples",
-            "Technical Demonstrations",
-            "Q&A Sessions",
-            "Certificates",
-            "College Programs",
-            "Customized Topics"
-        ]
-
-    },
-
-
-    course: {
-
-        icon: "📚",
-
-        category: "LEARNING PROGRAM",
-
-        title: "Technology Courses",
-
-        description:
-            "Beginner-friendly technology courses focused on practical development and career skills.",
-
-        detail:
-            "Courses can be designed for students who want to learn programming, web development, analytics, AI and other technology skills through structured learning.",
-
-        technologies: [
-            "Python",
-            "JavaScript",
-            "HTML",
-            "CSS",
-            "SQL",
-            "Artificial Intelligence",
-            "Data Analytics"
-        ],
-
-        features: [
-            "Structured Classes",
-            "Practical Exercises",
-            "Mini Projects",
-            "Assignments",
-            "Doubt Sessions",
-            "Learning Materials",
-            "Certificates",
-            "Project Guidance"
-        ]
-
-    },
-
-
-    webinar: {
-
-        icon: "🎥",
-
-        category: "LIVE LEARNING",
-
-        title: "Live Webinars",
-
-        description:
-            "Industry-oriented webinars covering technology, analytics and emerging digital skills.",
-
-        detail:
-            "Janova Technologies conducts online learning sessions where students can explore technology topics, career opportunities and practical industry concepts.",
-
-        technologies: [
-            "Business Analytics",
-            "Artificial Intelligence",
-            "Cyber Security",
-            "Data Science",
-            "Web Development",
-            "Digital Technology"
-        ],
-
-        features: [
-            "Live Online Sessions",
-            "Industry Topics",
-            "Interactive Q&A",
-            "Career Guidance",
-            "Learning Resources",
-            "Certificates",
-            "Student Community",
-            "Expert Sessions"
-        ]
-
-    }
+    modal.classList.add("active");
 
 };
 
 
-/* =====================================================
-   LOAD SERVICE PAGE
-===================================================== */
+window.closeLogin = function () {
 
-function loadServicePage() {
+    const modal =
+        document.getElementById("loginModal");
 
-    const title =
-        document.getElementById("serviceTitle");
+    modal.classList.remove("active");
 
-    if (!title) return;
+};
 
 
-    const params =
-        new URLSearchParams(window.location.search);
+window.demoLogin = function () {
 
-    const serviceKey =
-        params.get("service") || "website";
+    const email =
+        document.getElementById("loginEmail").value;
 
-
-    const service =
-        services[serviceKey];
+    const password =
+        document.getElementById("loginPassword").value;
 
 
-    if (!service) return;
+    if (!email || !password) {
+
+        alert(
+            "Please enter your email and password."
+        );
+
+        return;
+    }
 
 
-    document.title =
-        `Janova Technologies | ${service.title}`;
+    alert(
+        "Client Login UI is ready!\n\n" +
+        "Firebase Authentication can be connected here."
+    );
+
+};
 
 
-    document.getElementById("serviceIcon")
-        .textContent = service.icon;
+/* =========================================================
+   CLOSE LOGIN WHEN CLICK OUTSIDE
+========================================================= */
+
+const loginModal =
+    document.getElementById("loginModal");
 
 
-    document.getElementById("serviceCategory")
-        .textContent = service.category;
+if (loginModal) {
 
+    loginModal.addEventListener(
+        "click",
+        function (event) {
 
-    document.getElementById("serviceTitle")
-        .textContent = service.title;
+            if (event.target === this) {
 
+                window.closeLogin();
 
-    document.getElementById("serviceDescription")
-        .textContent = service.description;
+            }
 
-
-    document.getElementById("detailTitle")
-        .textContent = service.title;
-
-
-    document.getElementById("detailDescription")
-        .textContent = service.detail;
-
-
-    const techGrid =
-        document.getElementById("technologyGrid");
-
-
-    techGrid.innerHTML = "";
-
-
-    service.technologies.forEach(tech => {
-
-        const item =
-            document.createElement("div");
-
-        item.className =
-            "technology-card";
-
-        item.innerHTML = `
-            <span>◆</span>
-            ${tech}
-        `;
-
-        techGrid.appendChild(item);
-
-    });
-
-
-    const featureGrid =
-        document.getElementById("featureGrid");
-
-
-    featureGrid.innerHTML = "";
-
-
-    service.features.forEach(feature => {
-
-        const item =
-            document.createElement("div");
-
-        item.className =
-            "feature-card";
-
-        item.innerHTML = `
-            <span>✓</span>
-            ${feature}
-        `;
-
-        featureGrid.appendChild(item);
-
-    });
-
-
-    window.currentService =
-        service.title;
+        }
+    );
 
 }
 
 
-/* =====================================================
-   SERVICE WHATSAPP ENQUIRY
-===================================================== */
+/* =========================================================
+   ENQUIRY
+========================================================= */
 
-window.openWhatsAppEnquiry =
-    function () {
+window.openEnquiry = function () {
+
+    const contact =
+        document.getElementById("contact");
+
+    contact.scrollIntoView({
+
+        behavior: "smooth"
+
+    });
+
+};
+
+
+/* =========================================================
+   SUBMIT ENQUIRY
+========================================================= */
+
+window.submitEnquiry =
+    async function (event) {
+
+        event.preventDefault();
+
+
+        const nameInput =
+            document.getElementById("name");
+
+        const emailInput =
+            document.getElementById("email");
+
+        const phoneInput =
+            document.getElementById("phone");
+
+        const serviceInput =
+            document.getElementById("service");
+
+        const messageInput =
+            document.getElementById("message");
+
+
+        const name =
+            nameInput.value.trim();
+
+        const email =
+            emailInput.value.trim();
+
+        const phone =
+            phoneInput.value.trim();
 
         const service =
-            window.currentService ||
-            "Janova Technologies Service";
-
+            serviceInput.value;
 
         const message =
-`Hello Janova Technologies 👋
-
-I am interested in:
-
-*Service:* ${service}
-
-I would like to know more about the pricing, features and development process.
-
-Please contact me.
-
-Thank you.`;
+            messageInput.value.trim();
 
 
-        sendWhatsApp(message);
+        if (
+            !name ||
+            !email ||
+            !phone ||
+            !service ||
+            !message
+        ) {
 
-    };
+            alert(
+                "Please fill all details."
+            );
 
-
-/* =====================================================
-   MAIN ENQUIRY FORM
-===================================================== */
-
-const enquiryForm =
-    document.getElementById("enquiryForm");
-
-
-if (enquiryForm) {
-
-    enquiryForm.addEventListener(
-        "submit",
-        async function (event) {
-
-            event.preventDefault();
+            return;
+        }
 
 
-            const name =
-                document.getElementById("name")
-                    .value.trim();
+        /* =========================================
+           WHATSAPP
+        ========================================= */
+
+        const whatsappNumber =
+            "919360248958";
 
 
-            const email =
-                document.getElementById("email")
-                    .value.trim();
+        const whatsappMessage =
+
+            "New Enquiry from Janova Technologies\n\n" +
+
+            "Name: " +
+            name +
+
+            "\nEmail: " +
+            email +
+
+            "\nPhone: " +
+            phone +
+
+            "\nService: " +
+            service +
+
+            "\nMessage: " +
+            message;
 
 
-            const phone =
-                document.getElementById("phone")
-                    .value.trim();
+        const whatsappURL =
 
-
-            const service =
-                document.getElementById("service")
-                    .value;
-
-
-            const message =
-                document.getElementById("message")
-                    .value.trim();
-
-
-            if (
-                !name ||
-                !email ||
-                !phone ||
-                !service ||
-                !message
-            ) {
-
-                alert(
-                    "Please fill all details."
-                );
-
-                return;
-
-            }
-
-
-            const enquiryData = {
-
-                name,
-                email,
-                phone,
-                service,
-                message,
-
-                createdAt:
-                    new Date().toISOString()
-
-            };
-
-
-            try {
-
-                await addDoc(
-                    collection(db, "enquiries"),
-                    enquiryData
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    "Firebase Error:",
-                    error
-                );
-
-            }
-
-
-            const whatsappMessage =
-`Hello Janova Technologies 👋
-
-*NEW WEBSITE ENQUIRY*
-
-*Name:* ${name}
-
-*Email:* ${email}
-
-*Phone:* ${phone}
-
-*Service:* ${service}
-
-*Requirement:*
-${message}
-
-
-Sent from Janova Technologies Website.`;
-
-
-            sendWhatsApp(
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(
                 whatsappMessage
             );
 
 
-            enquiryForm.reset();
+        /* =========================================
+           FIREBASE DATA
+        ========================================= */
 
-        }
-    );
+        const enquiryData = {
 
-}
+            name: name,
 
+            email: email,
 
-/* =====================================================
-   LOGIN
-===================================================== */
+            phone: phone,
 
-const loginForm =
-    document.getElementById("loginForm");
+            service: service,
 
+            message: message,
 
-if (loginForm) {
+            createdAt:
+                new Date().toISOString()
 
-    loginForm.addEventListener(
-        "submit",
-        function (event) {
-
-            event.preventDefault();
+        };
 
 
-            const email =
-                document.getElementById(
-                    "loginEmail"
-                ).value.trim();
+        try {
+
+            await addDoc(
+
+                collection(
+                    db,
+                    "enquiries"
+                ),
+
+                enquiryData
+
+            );
 
 
-            const password =
-                document.getElementById(
-                    "loginPassword"
-                ).value.trim();
-
-
-            if (!email || !password) {
-
-                alert(
-                    "Please enter your login details."
-                );
-
-                return;
-
-            }
+            document
+                .getElementById(
+                    "enquiryForm"
+                )
+                .reset();
 
 
             alert(
-                "Client dashboard authentication will be connected here."
+                "Enquiry submitted successfully!\n\nOpening WhatsApp..."
+            );
+
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Firebase Error:",
+                error
+            );
+
+
+            alert(
+                "Your WhatsApp enquiry will open now."
             );
 
         }
+
+
+        /* =========================================
+           OPEN WHATSAPP
+        ========================================= */
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+    };
+
+
+/* =========================================================
+   MOUSE PARALLAX
+========================================================= */
+
+const backgroundRobot =
+    document.querySelector(
+        ".background-robot"
     );
 
-}
 
-
-/* =====================================================
-   MOUSE PARALLAX
-===================================================== */
-
-const world =
-    document.querySelector(".moving-world");
-
-
-if (world) {
+if (
+    backgroundRobot &&
+    window.innerWidth > 900
+) {
 
     document.addEventListener(
         "mousemove",
@@ -703,18 +332,20 @@ if (world) {
             const x =
                 (event.clientX /
                     window.innerWidth -
-                    0.5) * 8;
+                    0.5) * 12;
 
 
             const y =
                 (event.clientY /
                     window.innerHeight -
-                    0.5) * 5;
+                    0.5) * 8;
 
 
-            world.style.transform =
-                `scale(1.12)
-                 translate3d(${x}px,${y}px,0)`;
+            backgroundRobot.style.transform =
+
+                `translate3d(${x}px, ${y}px, 0)
+                 perspective(1000px)
+                 rotateY(${-10 + x / 3}deg)`;
 
         }
     );
@@ -722,8 +353,91 @@ if (world) {
 }
 
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
+/* =========================================================
+   CARD 3D EFFECT
+========================================================= */
 
-loadServicePage();
+const cards =
+    document.querySelectorAll(
+        ".service-card"
+    );
+
+
+cards.forEach(card => {
+
+    card.addEventListener(
+        "mousemove",
+        function (event) {
+
+            const rect =
+                card.getBoundingClientRect();
+
+
+            const x =
+                event.clientX -
+                rect.left;
+
+
+            const y =
+                event.clientY -
+                rect.top;
+
+
+            const centerX =
+                rect.width / 2;
+
+
+            const centerY =
+                rect.height / 2;
+
+
+            const rotateX =
+                (y - centerY) /
+                18;
+
+
+            const rotateY =
+                (centerX - x) /
+                18;
+
+
+            card.style.transform =
+
+                `perspective(700px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-8px)`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        function () {
+
+            card.style.transform =
+                "translateY(0)";
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   ESC KEY CLOSE LOGIN
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+
+            window.closeLogin();
+
+        }
+
+    }
+);
