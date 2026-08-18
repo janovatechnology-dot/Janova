@@ -8,40 +8,42 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 
 <header class="navbar">
 
-    <div class="logo">
+    <a href="index.html" class="logo">
         <div class="logo-orb"></div>
-        <span>JANOVA</span>
-        <small>TECHNOLOGIES</small>
-    </div>
+
+        <div>
+            <span>JANOVA</span>
+            <small>TECHNOLOGIES</small>
+        </div>
+    </a>
 
     <nav>
-        <a href="#home">Home</a>
+        <a href="index.html">Home</a>
         <a href="#services">Services</a>
         <a href="#students">Students</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <button class="login-btn" onclick="openLogin()">
+    <a href="login.html" class="login-btn">
         Client Login
-    </button>
+    </a>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
-<section id="home" class="hero">
+<section class="hero">
 
     <div class="moving-world"></div>
 
@@ -62,7 +64,7 @@
         <p>
             Smart billing software, attendance systems,
             websites, applications and digital solutions
-            designed for businesses and institutions.
+            designed for businesses, institutions and students.
         </p>
 
         <div class="hero-buttons">
@@ -71,16 +73,16 @@
                 Explore Services →
             </a>
 
-            <button class="glass-btn" onclick="openEnquiry()">
+            <a href="#contact" class="glass-btn">
                 Start a Project
-            </button>
+            </a>
 
         </div>
 
     </div>
 
 
-    <!-- 3D AVATAR -->
+    <!-- ROBOT -->
 
     <div class="avatar-container">
 
@@ -89,8 +91,10 @@
         <div class="avatar">
 
             <div class="avatar-head">
+
                 <div class="eye left"></div>
                 <div class="eye right"></div>
+
             </div>
 
             <div class="avatar-body">
@@ -113,7 +117,7 @@
 </section>
 
 
-<!-- ================= STATS ================= -->
+<!-- STATS -->
 
 <section class="stats">
 
@@ -140,7 +144,7 @@
 </section>
 
 
-<!-- ================= SERVICES ================= -->
+<!-- SERVICES -->
 
 <section id="services" class="section">
 
@@ -154,8 +158,8 @@
         </h2>
 
         <p>
-            From simple business websites to complete
-            software solutions.
+            Select a service to explore our solutions,
+            technologies and development options.
         </p>
 
     </div>
@@ -163,55 +167,62 @@
 
     <div class="service-grid">
 
-        <div class="service-card">
+
+        <a href="service.html?service=billing" class="service-card">
 
             <div class="service-icon">🧾</div>
 
             <h3>Billing Software</h3>
 
             <p>
-                Easy and powerful billing systems for
-                shops, businesses and organizations.
+                Smart billing, invoice, product and sales
+                management software for shops and businesses.
             </p>
 
-            <a href="#contact">Build Yours →</a>
+            <span class="service-link">
+                Explore Billing →
+            </span>
 
-        </div>
+        </a>
 
 
-        <div class="service-card">
+        <a href="service.html?service=attendance" class="service-card">
 
             <div class="service-icon">📊</div>
 
             <h3>Attendance Apps</h3>
 
             <p>
-                Smart attendance management systems
+                Digital attendance management systems
                 for colleges, schools and companies.
             </p>
 
-            <a href="#contact">Build Yours →</a>
+            <span class="service-link">
+                Explore Attendance →
+            </span>
 
-        </div>
+        </a>
 
 
-        <div class="service-card">
+        <a href="service.html?service=website" class="service-card">
 
             <div class="service-icon">🌐</div>
 
-            <h3>Websites</h3>
+            <h3>Website Development</h3>
 
             <p>
                 Modern responsive websites for companies,
-                stores and startups.
+                stores, startups and organizations.
             </p>
 
-            <a href="#contact">Create Website →</a>
+            <span class="service-link">
+                Explore Websites →
+            </span>
 
-        </div>
+        </a>
 
 
-        <div class="service-card">
+        <a href="service.html?service=app" class="service-card">
 
             <div class="service-icon">📱</div>
 
@@ -219,19 +230,93 @@
 
             <p>
                 Custom mobile and web applications
-                built around your requirements.
+                designed around your requirements.
             </p>
 
-            <a href="#contact">Build App →</a>
+            <span class="service-link">
+                Explore Apps →
+            </span>
 
-        </div>
+        </a>
+
+
+        <a href="service.html?service=internship" class="service-card">
+
+            <div class="service-icon">🎓</div>
+
+            <h3>Internships</h3>
+
+            <p>
+                Practical technology internships
+                for college students.
+            </p>
+
+            <span class="service-link">
+                Explore Internship →
+            </span>
+
+        </a>
+
+
+        <a href="service.html?service=workshop" class="service-card">
+
+            <div class="service-icon">💻</div>
+
+            <h3>Workshops</h3>
+
+            <p>
+                Industry-oriented technical workshops
+                and hands-on learning sessions.
+            </p>
+
+            <span class="service-link">
+                Explore Workshops →
+            </span>
+
+        </a>
+
+
+        <a href="service.html?service=course" class="service-card">
+
+            <div class="service-icon">📚</div>
+
+            <h3>Courses</h3>
+
+            <p>
+                Practical technology courses designed
+                for students and beginners.
+            </p>
+
+            <span class="service-link">
+                Explore Courses →
+            </span>
+
+        </a>
+
+
+        <a href="service.html?service=webinar" class="service-card">
+
+            <div class="service-icon">🎥</div>
+
+            <h3>Webinars</h3>
+
+            <p>
+                Live webinars covering technology,
+                analytics and emerging digital skills.
+            </p>
+
+            <span class="service-link">
+                Explore Webinars →
+            </span>
+
+        </a>
 
     </div>
 
 </section>
 
 
-<!-- ================= STUDENTS ================= -->
+<!-- STUDENTS -->
 
 <section id="students" class="student-section">
 
@@ -246,38 +331,38 @@
         </h2>
 
         <p>
-            Practical internships, weekly classes,
-            technical workshops and live webinars
-            designed for students.
+            Practical internships, technical workshops,
+            courses and live webinars designed to help
+            students build real-world skills.
         </p>
 
         <div class="student-features">
 
-            <div>
+            <a href="service.html?service=internship">
                 🎓
                 <span>Internships</span>
-            </div>
+            </a>
 
-            <div>
+            <a href="service.html?service=workshop">
                 💻
-                <span>Technical Classes</span>
-            </div>
+                <span>Technical Workshops</span>
+            </a>
 
-            <div>
+            <a href="service.html?service=webinar">
                 🎥
                 <span>Live Webinars</span>
-            </div>
+            </a>
 
-            <div>
+            <a href="service.html?service=course">
                 🏆
-                <span>Course Certificates</span>
-            </div>
+                <span>Technology Courses</span>
+            </a>
 
         </div>
 
-        <button class="primary-btn" onclick="openStudentForm()">
+        <a href="service.html?service=internship" class="primary-btn">
             Join a Program →
-        </button>
+        </a>
 
     </div>
 
@@ -290,7 +375,10 @@
             &lt;/&gt;
         </div>
 
-        <h3>CREATE YOUR<br>OWN FUTURE</h3>
+        <h3>
+            CREATE YOUR<br>
+            OWN FUTURE
+        </h3>
 
         <p>
             JANOVA TECHNOLOGIES
@@ -301,7 +389,52 @@
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- PARTNERS -->
+
+<section class="partners-section">
+
+    <div class="section-title center">
+
+        <span>OUR NETWORK</span>
+
+        <h2>
+            Partners &
+            <b>Collaborations</b>
+        </h2>
+
+        <p>
+            We collaborate with businesses, institutions
+            and student communities to create digital solutions.
+        </p>
+
+    </div>
+
+    <div class="partner-grid">
+
+        <div class="partner-card">
+            <div>🏢</div>
+            <h3>Business Partners</h3>
+            <p>Digital solutions for growing businesses.</p>
+        </div>
+
+        <div class="partner-card">
+            <div>🎓</div>
+            <h3>College Partners</h3>
+            <p>Training and technology programs for students.</p>
+        </div>
+
+        <div class="partner-card">
+            <div>🤝</div>
+            <h3>Technology Partners</h3>
+            <p>Building modern solutions through technology.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
 
 <section id="about" class="section about">
 
@@ -351,7 +484,7 @@
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- CONTACT -->
 
 <section id="contact" class="contact-section">
 
@@ -379,19 +512,21 @@
             </p>
 
             <div class="contact-item">
-                📧
-                Janovatechnology@gmail.com
+                📧 Janovatechnology@gmail.com
             </div>
 
             <div class="contact-item">
-                📞
-                +91 93602 48958
+                📞 +91 93602 48958
+            </div>
+
+            <div class="contact-item">
+                🏢 Udyam Registered Enterprise
             </div>
 
         </div>
 
 
-        <form id="enquiryForm" onsubmit="submitEnquiry(event)">
+        <form id="enquiryForm">
 
             <input
                 type="text"
@@ -414,7 +549,7 @@
                 required
             >
 
-            <select id="service">
+            <select id="service" required>
 
                 <option value="">
                     Select Service
@@ -425,7 +560,9 @@
                 <option>Website Development</option>
                 <option>App Development</option>
                 <option>Internship</option>
-                <option>Business Analytics (Webinar)</option>
+                <option>Workshop</option>
+                <option>Course</option>
+                <option>Business Analytics Webinar</option>
 
             </select>
 
@@ -449,17 +586,22 @@
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
     <div class="footer-brand">
 
-        <div class="logo">
+        <a href="index.html" class="logo">
+
             <div class="logo-orb"></div>
-            <span>JANOVA</span>
-            <small>TECHNOLOGIES</small>
-        </div>
+
+            <div>
+                <span>JANOVA</span>
+                <small>TECHNOLOGIES</small>
+            </div>
+
+        </a>
 
         <p>
             Building smarter digital solutions
@@ -473,22 +615,22 @@
 
         <h4>Services</h4>
 
-        <a href="#services">Billing Software</a>
-        <a href="#services">Attendance Apps</a>
-        <a href="#services">Web Development</a>
-        <a href="#students">Student Programs</a>
+        <a href="service.html?service=billing">Billing Software</a>
+        <a href="service.html?service=attendance">Attendance Apps</a>
+        <a href="service.html?service=website">Web Development</a>
+        <a href="service.html?service=app">App Development</a>
 
     </div>
 
 
     <div class="footer-links">
 
-        <h4>Company</h4>
+        <h4>Students</h4>
 
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
-        <a href="#students">Internships</a>
-        <a href="#students">Webinars</a>
+        <a href="service.html?service=internship">Internships</a>
+        <a href="service.html?service=workshop">Workshops</a>
+        <a href="service.html?service=course">Courses</a>
+        <a href="service.html?service=webinar">Webinars</a>
 
     </div>
 
@@ -498,12 +640,8 @@
         <h4>Contact</h4>
 
         <p>📧 Janovatechnology@gmail.com</p>
-
         <p>📞 +91 93602 48958</p>
-
-        <p>
-            🏢 Udyam Registered Enterprise
-        </p>
+        <p>🏢 Udyam Registered Enterprise</p>
 
     </div>
 
@@ -517,45 +655,6 @@
 
 </div>
 
-
-<!-- ================= LOGIN MODAL ================= -->
-
-<div class="modal" id="loginModal">
-
-    <div class="modal-box">
-
-        <button class="close" onclick="closeLogin()">×</button>
-
-        <div class="login-logo">J</div>
-
-        <h2>Client Login</h2>
-
-        <p>Access your Janova project dashboard.</p>
-
-        <input
-            type="email"
-            placeholder="Email"
-        >
-
-        <input
-            type="password"
-            placeholder="Password"
-        >
-
-        <button class="primary-btn" onclick="demoLogin()">
-            Login →
-        </button>
-
-        <small>
-            New client? Submit an enquiry first.
-        </small>
-
-    </div>
-
-</div>
-
-
-<!-- ================= JS ================= -->
 
 <script type="module" src="script.js"></script>
 
