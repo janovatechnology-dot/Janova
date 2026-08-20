@@ -200,7 +200,127 @@ HERO
             JANOVA AI
 
         </div>
+<!-- =====================================================
+     JANOVA AI ASSISTANT
+===================================================== -->
 
+<div class="janova-assistant">
+
+    <div class="assistant-mini-robots">
+
+        <span class="mini-robot robot-a">🤖</span>
+        <span class="mini-robot robot-b">◉</span>
+        <span class="mini-robot robot-c">✦</span>
+
+    </div>
+
+    <div class="assistant-status">
+
+        <span class="status-dot"></span>
+
+        JANOVA ASSISTANT
+
+    </div>
+
+
+    <div class="assistant-card">
+
+        <div class="assistant-card-header">
+
+            <div class="assistant-avatar">
+                J
+            </div>
+
+            <div>
+
+                <strong>Janova Assistant</strong>
+
+                <small>
+                    AI Digital Guide
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="assistantMessages"
+            class="assistant-messages">
+
+            <div class="assistant-message bot">
+
+                👋 Hi! I'm Janova Assistant.
+
+                <br><br>
+
+                Ask me about our company,
+                websites, billing software,
+                apps, internships, workshops
+                or pricing.
+
+            </div>
+
+        </div>
+
+
+        <div class="assistant-quick">
+
+            <button
+                onclick="askJanova('services')">
+
+                🚀 Services
+
+            </button>
+
+
+            <button
+                onclick="askJanova('website')">
+
+                🌐 Websites
+
+            </button>
+
+
+            <button
+                onclick="askJanova('company')">
+
+                🏢 Company
+
+            </button>
+
+
+            <button
+                onclick="askJanova('pricing')">
+
+                💰 Pricing
+
+            </button>
+
+        </div>
+
+
+        <div class="assistant-input">
+
+            <input
+                type="text"
+                id="assistantInput"
+                placeholder="Ask Janova Assistant..."
+                onkeydown="assistantEnter(event)"
+            >
+
+            <button
+                onclick="sendAssistantMessage()">
+
+                ➤
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
     </div>
 
 </section>
