@@ -783,3 +783,405 @@ INITIALIZE
 ===================================================== */
 
 loadServicePage();
+/* =====================================================
+   JANOVA AI ASSISTANT
+===================================================== */
+
+const janovaAssistantReplies = {
+
+    services: `
+        🚀 <b>Janova Technologies</b> provides practical digital solutions
+        for businesses, stores, institutions and students.
+
+        <br><br>
+
+        We build:
+        <br>• Billing Software
+        <br>• Attendance Systems
+        <br>• Business Websites
+        <br>• Mobile & Web Apps
+        <br>• Internships
+        <br>• Workshops
+        <br>• Courses
+        <br>• Webinars
+
+        <br><br>
+        Tell me what you need and I'll guide you.
+    `,
+
+
+    website: `
+        🌐 <b>Website Development</b>
+
+        <br><br>
+
+        We can create a professional business website
+        with responsive design, animations, enquiry forms,
+        WhatsApp integration, dashboards and custom features.
+
+        <br><br>
+
+        Your website can be designed around your
+        company's brand, services and requirements.
+    `,
+
+
+    company: `
+        🏢 <b>About Janova Technologies</b>
+
+        <br><br>
+
+        Janova Technologies focuses on practical,
+        affordable and modern digital solutions.
+
+        <br><br>
+
+        We help businesses, stores, institutions and
+        students move towards a smarter digital future.
+
+        <br><br>
+
+        💡 Idea → Design → Development → Digital Solution
+    `,
+
+
+    pricing: `
+        💰 <b>Janova Pricing</b>
+
+        <br><br>
+
+        We focus on keeping development affordable
+        and competitive.
+
+        <br><br>
+
+        🔹 Selected solutions can be offered
+        <b>up to 20% lower</b> than typical market pricing.
+
+        <br><br>
+
+        🔹 For selected student/business packages,
+        special offers may reach <b>up to 50% lower</b>
+        depending on the project scope.
+
+        <br><br>
+
+        Final pricing depends on the features,
+        technology and development requirements.
+    `,
+
+
+    internship: `
+        🎓 <b>Janova Internships</b>
+
+        <br><br>
+
+        Students can work on practical projects and
+        learn areas such as Python, Web Development,
+        Data Analytics, AI and Software Development.
+
+        <br><br>
+
+        The goal is simple:
+        <b>Learn → Build → Get Experience.</b>
+    `,
+
+
+    app: `
+        📱 <b>App Development</b>
+
+        <br><br>
+
+        We can build custom mobile or web applications
+        based on your business or project idea.
+
+        <br><br>
+
+        Features may include login, database,
+        admin panel, notifications, APIs and
+        custom dashboards.
+    `
+
+};
+
+
+/* =====================================================
+   ASK JANOVA
+===================================================== */
+
+window.askJanova = function(type) {
+
+    const reply =
+        janovaAssistantReplies[type];
+
+    if (!reply) return;
+
+    addAssistantMessage(
+        type,
+        "user"
+    );
+
+    setTimeout(() => {
+
+        addAssistantMessage(
+            reply,
+            "bot"
+        );
+
+    }, 450);
+
+};
+
+
+/* =====================================================
+   SEND USER MESSAGE
+===================================================== */
+
+window.sendAssistantMessage = function() {
+
+    const input =
+        document.getElementById(
+            "assistantInput"
+        );
+
+    if (!input) return;
+
+    const question =
+        input.value.trim();
+
+    if (!question) return;
+
+
+    addAssistantMessage(
+        question,
+        "user"
+    );
+
+
+    input.value = "";
+
+
+    setTimeout(() => {
+
+        const reply =
+            getJanovaReply(question);
+
+        addAssistantMessage(
+            reply,
+            "bot"
+        );
+
+    }, 450);
+
+};
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+window.assistantEnter = function(event) {
+
+    if (event.key === "Enter") {
+
+        sendAssistantMessage();
+
+    }
+
+};
+
+
+/* =====================================================
+   MESSAGE DISPLAY
+===================================================== */
+
+function addAssistantMessage(
+    message,
+    type
+) {
+
+    const container =
+        document.getElementById(
+            "assistantMessages"
+        );
+
+    if (!container) return;
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.className =
+        `assistant-message ${type}`;
+
+
+    if (
+        type === "user" &&
+        janovaAssistantReplies[message]
+    ) {
+
+        const names = {
+
+            services: "What services do you provide?",
+
+            website: "What about website development?",
+
+            company: "Tell me about Janova.",
+
+            pricing: "How is your pricing?",
+
+            internship: "Tell me about internships.",
+
+            app: "Can you build applications?"
+
+        };
+
+        div.textContent =
+            names[message] || message;
+
+    }
+    else {
+
+        div.innerHTML =
+            message;
+
+    }
+
+
+    container.appendChild(div);
+
+
+    container.scrollTop =
+        container.scrollHeight;
+
+}
+
+
+/* =====================================================
+   BASIC AI-STYLE RESPONSE ENGINE
+===================================================== */
+
+function getJanovaReply(question) {
+
+    const q =
+        question.toLowerCase();
+
+
+    if (
+        q.includes("service") ||
+        q.includes("what do you do") ||
+        q.includes("what can you build") ||
+        q.includes("offer")
+    ) {
+
+        return janovaAssistantReplies.services;
+
+    }
+
+
+    if (
+        q.includes("website") ||
+        q.includes("web site") ||
+        q.includes("web development")
+    ) {
+
+        return janovaAssistantReplies.website;
+
+    }
+
+
+    if (
+        q.includes("price") ||
+        q.includes("pricing") ||
+        q.includes("cost") ||
+        q.includes("cheap") ||
+        q.includes("discount")
+    ) {
+
+        return janovaAssistantReplies.pricing;
+
+    }
+
+
+    if (
+        q.includes("intern") ||
+        q.includes("internship")
+    ) {
+
+        return janovaAssistantReplies.internship;
+
+    }
+
+
+    if (
+        q.includes("app") ||
+        q.includes("application")
+    ) {
+
+        return janovaAssistantReplies.app;
+
+    }
+
+
+    if (
+        q.includes("company") ||
+        q.includes("janova") ||
+        q.includes("about")
+    ) {
+
+        return janovaAssistantReplies.company;
+
+    }
+
+
+    if (
+        q.includes("hello") ||
+        q.includes("hi") ||
+        q.includes("hey")
+    ) {
+
+        return `
+            👋 Hello!
+
+            <br><br>
+
+            I'm <b>Janova Assistant</b> 🤖
+
+            <br><br>
+
+            I can tell you about our services,
+            websites, apps, internships,
+            company and pricing approach.
+
+            <br><br>
+
+            What would you like to know?
+        `;
+
+    }
+
+
+    return `
+        🤖 I'm Janova Assistant.
+
+        <br><br>
+
+        I can help you understand our
+        <b>digital services, website development,
+        applications, internships and pricing.</b>
+
+        <br><br>
+
+        Try asking:
+        <br>
+        “What services do you provide?”
+        <br>
+        “Can you build a website?”
+        <br>
+        “How much cheaper is Janova?”
+    `;
+
+}
