@@ -3279,3 +3279,591 @@ footer h4 {
         grid-template-columns: 1fr;
     }
 }
+/* =====================================================
+   JANOVA AI ASSISTANT
+===================================================== */
+
+.janova-assistant {
+
+    position: absolute;
+
+    right: 4%;
+    bottom: 15px;
+
+    width: 330px;
+
+    z-index: 20;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    pointer-events: none;
+}
+
+
+/* STATUS */
+
+.assistant-status {
+
+    pointer-events: auto;
+
+    padding: 7px 14px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(3,10,20,.82);
+
+    border:
+        1px solid rgba(0,234,255,.35);
+
+    backdrop-filter: blur(15px);
+
+    color: #dffcff;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 0 20px rgba(0,234,255,.12);
+
+    margin-bottom: 8px;
+}
+
+
+.status-dot {
+
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: #00eaff;
+
+    box-shadow:
+        0 0 10px #00eaff;
+
+    animation:
+        assistantBlink 1.2s infinite;
+}
+
+
+@keyframes assistantBlink {
+
+    50% {
+        opacity: .25;
+        transform: scale(.7);
+    }
+
+}
+
+
+/* =====================================================
+   MINI 3D ROBOTS
+===================================================== */
+
+.assistant-mini-robots {
+
+    position: absolute;
+
+    width: 330px;
+    height: 150px;
+
+    bottom: 25px;
+
+    pointer-events: none;
+}
+
+
+.mini-robot {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #ffffff,
+            #00eaff 25%,
+            #1265bd 55%,
+            #020813 80%
+        );
+
+    border:
+        1px solid rgba(0,234,255,.8);
+
+    box-shadow:
+        0 0 15px #00eaff,
+        0 0 35px rgba(0,150,255,.4);
+
+    font-size: 15px;
+
+    animation:
+        miniRobotFloat 4s ease-in-out infinite;
+}
+
+
+.robot-a {
+
+    left: 5px;
+    top: 30px;
+
+    animation-delay: 0s;
+}
+
+
+.robot-b {
+
+    right: 5px;
+    top: 10px;
+
+    color: #fff1a8;
+
+    border-color:
+        rgba(212,175,55,.7);
+
+    box-shadow:
+        0 0 15px #d4af37,
+        0 0 35px rgba(212,175,55,.3);
+
+    animation-delay: 1s;
+}
+
+
+.robot-c {
+
+    left: 55px;
+    bottom: 5px;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes miniRobotFloat {
+
+    0%,100% {
+
+        transform:
+            translate3d(0,0,0)
+            rotateY(0deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(0,-18px,0)
+            rotateY(180deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   ASSISTANT CARD
+===================================================== */
+
+.assistant-card {
+
+    width: 330px;
+
+    padding: 15px;
+
+    pointer-events: auto;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7,20,35,.94),
+            rgba(2,7,15,.92)
+        );
+
+    border:
+        1px solid rgba(0,234,255,.25);
+
+    backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.6),
+        inset 0 0 35px rgba(0,234,255,.04),
+        0 0 35px rgba(0,180,255,.08);
+
+    transform:
+        perspective(800px)
+        rotateX(3deg);
+
+    transition: .35s;
+}
+
+
+.assistant-card:hover {
+
+    transform:
+        perspective(800px)
+        rotateX(0deg)
+        translateY(-4px);
+
+    border-color:
+        rgba(0,234,255,.5);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.7),
+        0 0 45px rgba(0,200,255,.12);
+
+}
+
+
+/* =====================================================
+   ASSISTANT HEADER
+===================================================== */
+
+.assistant-card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-bottom: 12px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
+}
+
+
+.assistant-avatar {
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00eaff,
+            #176cff
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 0 20px rgba(0,234,255,.3);
+}
+
+
+.assistant-card-header strong {
+
+    display: block;
+
+    font-size: 12px;
+
+    color: white;
+}
+
+
+.assistant-card-header small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: #56eaff;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   MESSAGES
+===================================================== */
+
+.assistant-messages {
+
+    height: 120px;
+
+    overflow-y: auto;
+
+    padding: 12px 3px;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #176cff
+        transparent;
+}
+
+
+.assistant-message {
+
+    max-width: 92%;
+
+    padding: 10px 12px;
+
+    border-radius: 13px;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+    margin-bottom: 8px;
+}
+
+
+.assistant-message.bot {
+
+    color: #c8d8e8;
+
+    background:
+        rgba(0,234,255,.07);
+
+    border:
+        1px solid rgba(0,234,255,.1);
+
+}
+
+
+.assistant-message.user {
+
+    margin-left: auto;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #126cff,
+            #008bd9
+        );
+
+}
+
+
+/* =====================================================
+   QUICK QUESTIONS
+===================================================== */
+
+.assistant-quick {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-bottom: 10px;
+}
+
+
+.assistant-quick button {
+
+    border:
+        1px solid rgba(0,234,255,.18);
+
+    background:
+        rgba(0,234,255,.05);
+
+    color: #aeeeff;
+
+    border-radius: 20px;
+
+    padding: 7px 9px;
+
+    font-size: 8px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.assistant-quick button:hover {
+
+    background:
+        rgba(0,234,255,.15);
+
+    border-color:
+        rgba(0,234,255,.5);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.assistant-input {
+
+    display: flex;
+
+    gap: 6px;
+}
+
+
+.assistant-input input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding:
+        10px 12px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    background:
+        rgba(0,0,0,.35);
+
+    color: white;
+
+    font-size: 10px;
+
+    outline: none;
+}
+
+
+.assistant-input input:focus {
+
+    border-color:
+        #00eaff;
+
+    box-shadow:
+        0 0 15px rgba(0,234,255,.08);
+}
+
+
+.assistant-input button {
+
+    width: 38px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00cfff,
+            #176cff
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 0 18px rgba(0,180,255,.2);
+}
+
+
+/* =====================================================
+   MOBILE ASSISTANT
+===================================================== */
+
+@media(max-width:1000px) {
+
+    .janova-assistant {
+
+        right: 20px;
+
+        bottom: 15px;
+
+        transform:
+            scale(.88);
+
+        transform-origin:
+            bottom right;
+
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .janova-assistant {
+
+        right: 10px;
+
+        bottom: 10px;
+
+        width: 285px;
+
+        transform:
+            scale(.78);
+
+        transform-origin:
+            bottom right;
+
+    }
+
+    .assistant-card {
+
+        width: 285px;
+
+    }
+
+    .assistant-mini-robots {
+
+        width: 285px;
+
+    }
+
+}
+
+
+@media(max-width:400px) {
+
+    .janova-assistant {
+
+        transform:
+            scale(.68);
+
+        right: 5px;
+
+        bottom: 5px;
+
+    }
+
+   }
